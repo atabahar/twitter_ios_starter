@@ -18,12 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="Twitter_Logo_Blue-1" translatesAutoresizingMaskIntoConstraints="NO" id="UOB-vB-7ht">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Twitter_Logo_Blue-2" translatesAutoresizingMaskIntoConstraints="NO" id="nkF-sq-jiU">
+                                <rect key="frame" x="0.0" y="114" width="375" height="400"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="nkF-sq-jiU" secondAttribute="bottom" constant="153" id="WX0-ES-rjp"/>
+                            <constraint firstItem="nkF-sq-jiU" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="fO4-YN-AOv"/>
+                            <constraint firstItem="nkF-sq-jiU" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="94" id="ixs-yA-ri2"/>
+                            <constraint firstItem="nkF-sq-jiU" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="xA1-YL-7sh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
                 </viewController>
@@ -33,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Twitter_Logo_Blue-1" width="400" height="400"/>
+        <image name="Twitter_Logo_Blue-2" width="400" height="400"/>
     </resources>
 </document>

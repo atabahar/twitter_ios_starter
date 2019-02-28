@@ -22,9 +22,19 @@ class HomeTableTableViewController: UITableViewController {
         
         myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
         tableView.refreshControl = myRefreshControl
-
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 140
+        
     }
+    /* Sonradan yazdik bu ozelligi: sen bir Tweet atinca,
+     Senin Tweetin ana sayfada en uste yerini aliyor */
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.loadTweets()
+        
+    }
     @objc func loadTweets(){
         
         numberOfTweet = 20
@@ -34,6 +44,8 @@ class HomeTableTableViewController: UITableViewController {
 
     
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
+            
+            
             
             self.tweetArray.removeAll()
             for tweet in tweets{
@@ -46,6 +58,7 @@ class HomeTableTableViewController: UITableViewController {
             
         }, failure: {(Error) in
         print("Could not retreive tweets!")
+            
     })
 }
 
@@ -59,6 +72,7 @@ class HomeTableTableViewController: UITableViewController {
         let myParams = ["count": numberOfTweet]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
+            
             
             self.tweetArray.removeAll()
             for tweet in tweets{
@@ -114,6 +128,13 @@ class HomeTableTableViewController: UITableViewController {
             cell.profileImageView.image = UIImage(data: imageData)
         }
         
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
+        
+ 
         return cell
     }
     
